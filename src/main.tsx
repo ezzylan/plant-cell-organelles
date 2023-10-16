@@ -6,16 +6,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        { index: true, element: <Index /> },
+        { path: "/game", element: <Game /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Root />,
-    children: [
-      { index: true, element: <Index /> },
-      { path: "/game", element: <Game /> },
-    ],
+    basename: "/plant-cell-organelles",
   },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
