@@ -11,7 +11,9 @@ export function Droppable(props: DroppableProps) {
   const { children, id, styles } = props;
   const { isOver, setNodeRef } = useDroppable({ id: id });
   const overClass = isOver ? "border-2 border-yellow-300" : "";
-  const childrenClass = (children && children.length) > 0 ? "p-0" : "p-5";
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const childrenClass = children && children.length > 0 ? "p-0" : "p-5";
 
   return (
     <div

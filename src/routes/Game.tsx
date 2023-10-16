@@ -1,7 +1,7 @@
 import plantCell from "@/assets/images/plant-cell-organelle-labelling.png";
 import { Draggable } from "@/components/Draggable";
 import { Droppable } from "@/components/Droppable";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   PlantCellLabel,
   plantCellContainers as droppables,
@@ -76,6 +76,15 @@ export default function Game() {
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
               You really know your organelles...
             </h4>
+            <Button asChild className="bg-green-500">
+              <Link
+                reloadDocument
+                to={"/game"}
+                className="scroll-m-20 text-xl font-semibold tracking-tight"
+              >
+                Play again?
+              </Link>
+            </Button>
           </div>
         )}
       </div>
