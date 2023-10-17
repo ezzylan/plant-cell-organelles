@@ -1,7 +1,7 @@
 import plantCell from "@/assets/images/plant-cell-organelle-labelling.png";
 import { Draggable } from "@/components/Draggable";
 import { Droppable } from "@/components/Droppable";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   PlantCellLabel,
   plantCellContainers as droppables,
@@ -16,7 +16,6 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -58,10 +57,6 @@ export default function Game() {
 
   return (
     <main>
-      <Link to={"/"} className={buttonVariants({ variant: "destructive" })}>
-        <ChevronLeft />
-      </Link>
-
       <div className="flex">
         <img
           className="w-5/6"
@@ -79,7 +74,7 @@ export default function Game() {
             <Button asChild className="bg-green-500">
               <Link
                 reloadDocument
-                to={"/game"}
+                to={"/"}
                 className="scroll-m-20 text-xl font-semibold tracking-tight"
               >
                 Play again?
