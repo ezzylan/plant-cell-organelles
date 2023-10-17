@@ -16,6 +16,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import dayjs from "dayjs";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -31,6 +32,7 @@ export default function Game() {
   );
 
   function handleDragEnd(ev: DragEndEvent) {
+    console.log(dayjs().format("HH:mm:ss"));
     const { active, over } = ev;
 
     setDraggables((draggables) => {
@@ -71,7 +73,11 @@ export default function Game() {
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
               You really know your organelles...
             </h4>
-            <Button asChild className="bg-green-500">
+            <Button
+              asChild
+              className="bg-green-500"
+              onClick={() => console.log(dayjs().format("HH:mm:ss"))}
+            >
               <Link
                 reloadDocument
                 to={"/"}
@@ -84,7 +90,11 @@ export default function Game() {
         )}
       </div>
 
-      <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+      <DndContext
+        onDragStart={() => console.log(dayjs().format("HH:mm:ss"))}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
         {droppables.map((droppable) => (
           <Droppable
             {...droppable}

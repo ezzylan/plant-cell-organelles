@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 
 export default function Index() {
@@ -14,7 +15,11 @@ export default function Index() {
         If you correctly label all the organelles, you'll see a magical cellular
         spectacular!
       </p>
-      <Button asChild className="bg-green-500">
+      <Button
+        asChild
+        className="bg-green-500"
+        onClick={() => console.log(dayjs().format("HH:mm:ss"))}
+      >
         <Link
           to={"/game"}
           className="scroll-m-20 text-xl font-semibold tracking-tight"
